@@ -1,0 +1,23 @@
+{
+    "name": "muplugin/asse-action-feed",
+    "type": "wordpress-muplugin",
+    "description": "Filter the feeds for an absolute of uploads in the frontend",
+    "keywords": [
+        "wordpress",
+        "muplugin"
+    ],
+    "require": {
+        "koodimonni/composer-dropin-installer": ">=1.0.1"
+    },
+    "authors": [
+        {
+            "name": "Sebastian Döll",
+            "homepage": "http://www.axelspringer.de"
+        }
+    ],
+    "homepage": "https://as-stash.axelspringer.de/projects/WPMUP/repos/asse-action-feed",
+    "license": "proprietary",
+    "extra": {
+        "installer-name": "asse-admin-feed"
+    }
+}
