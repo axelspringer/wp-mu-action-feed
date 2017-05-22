@@ -33,3 +33,4 @@ function asse_action_feed()
 add_action('atom_head', 'asse_action_feed');
 add_action('rss_head', 'asse_action_feed');
 add_action('rss2_head', 'asse_action_feed');
+add_action('afbia_head', 'asse_action_feed');
