@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || exit;
 
 /**
  * Replace feed urls
@@ -6,15 +7,17 @@
  * @param mixed $source
  * @return mixed
  */
-function replaceFeedUrls($source) {
-  // check to be feed
-  if ((!defined('STATIC_URL') || STATIC_URL === "") && is_feed()) {
-    return preg_replace_callback('/(["\'])(\/?data\/uploads[^\\1]*?)\\1/i', function($m) {
-      $path = substr($m[2], 0, 1) === '/' ? $m[2] : '/' . $m[2];
-      return $m[1] . FRONT_URL . $path . $m[1];
-    }, $source);
+function asse_action_feed_replace_url($buffer, $source) {
+  // exit if not feed
+  if (!is_feed()) {
+    return $buffer;
   }
-  return $source;
+
+  // check to be feed
+  return preg_replace_callback('/(["\'])(\/?data\/uploads[^\\1]*?)\\1/i', function($m) {
+    $path = substr($m[2], 0, 1) === '/' ? $m[2] : '/' . $m[2];
+    return $m[1] . FRONT_URL . $path . $m[1];
+  }, $buffer);
 }
 
 
@@ -23,10 +26,10 @@ function replaceFeedUrls($source) {
  *
  * @wp-hook wp_head
  */
-function bufferReplaceFeed()
+function asse_action_feed()
 {
-  ob_start('replaceFeedUrls');
+  ob_start( 'asse_action_feed_replace_url' );
 }
-add_action('atom_head', 'bufferReplaceFeed');
-add_action('rss_head', 'bufferReplaceFeed');
-add_action('rss2_head', 'bufferReplaceFeed');
+add_action('atom_head', 'asse_action_feed');
+add_action('rss_head', 'asse_action_feed');
+add_action('rss2_head', 'asse_action_feed');
