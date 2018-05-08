@@ -1,5 +1,5 @@
 {
-    "name": "axelspringer/asse-action-feed",
+    "name": "axelspringer/wp-mu-action-feed",
     "type": "wordpress-muplugin",
     "description": "Filter the feeds for an absolute of uploads in the frontend",
     "keywords": [
@@ -22,6 +22,6 @@
     "homepage": "https://github.com/axelspringer/wp-mu-action-feed",
     "license": "Apache-2.0",
     "extra": {
-        "installer-name": "wp-mu-admin-feed"
+        "installer-name": "wp-mu-action-admin-feed"
     }
 }
